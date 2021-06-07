@@ -13,6 +13,8 @@ use App\Http\Controllers\backend\PrayerController;
 use App\Http\Controllers\backend\LiveTvController;
 use App\Http\Controllers\backend\NoticeController;
 use App\Http\Controllers\backend\WebController;
+use App\Http\Controllers\backend\PhotoGalleryController;
+use App\Http\Controllers\backend\VideoController;
 
 
 
@@ -121,4 +123,20 @@ Route::get('/allweb', [WebController::class,'allWeb'])->name('all.website');
 Route::get('/web/{id}/edit', [WebController::class,'EditWeb'])->name('edit.web');
 Route::post('web/{id}/update', [WebController::class,'UpdateWeb'])->name('update.web');
 Route::get('/web/{id}/delete', [WebController::class,'DeleteWeb'])->name('delete.web');
+
+//Photogallery Link Route
+Route::get('/photo/gallery', [PhotoGalleryController::class,'PhotoGallery'])->name('photo.gallery');
+Route::get('/add/photo', [PhotoGalleryController::class,'AddPhoto'])->name('add.photo');
+Route::post('/store/photo', [PhotoGalleryController::class,'StorePhoto'])->name('store.photo');
+Route::get('photo/{id}/edit', [PhotoGalleryController::class,'EditPhoto'])->name('edit.photo');
+Route::post('photo/{id}/update', [PhotoGalleryController::class,'UpdatePhoto'])->name('update.photo');
+Route::get('photo/{id}/delete', [PhotoGalleryController::class,'DeletePhoto'])->name('delete.photo');
+
+//Videogallery Link Route
+Route::get('/video/gallery', [VideoController::class,'VideoGallery'])->name('video.gallery');
+Route::get('/add/video', [VideoController::class,'AddVideo'])->name('add.video');
+Route::post('/store/video', [VideoController::class,'StoreVideo'])->name('store.video');
+Route::get('/video/{id}/edit', [VideoController::class,'EditVideo'])->name('edit.video');
+Route::post('/video/{id}/update', [VideoController::class,'UpdateVideo'])->name('update.video');
+Route::get('/video/{id}/delete', [VideoController::class,'DeleteVideo'])->name('delete.video');
 
