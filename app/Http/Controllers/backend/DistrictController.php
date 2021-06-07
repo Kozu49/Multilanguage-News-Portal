@@ -50,7 +50,7 @@ class DistrictController extends Controller
             'message'=> 'District Updated successfully',
             'alert-type'=>'success'
         );
-        return redirect()->route('districts')->with($notification);;
+        return redirect()->route('districts')->with($notification);
     }
 
     public function DeleteDistrict($id){

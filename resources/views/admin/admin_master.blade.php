@@ -123,5 +123,38 @@
         
     });
 </script>
+
+<script type="text/javascript">
+    $('#summernote2').summernote({
+        height: 150
+        
+    });
+</script>
+
+<script type="text/javascript">
+    $('#summernote3').summernote({
+        height: 150
+        
+    });
+</script>
+
+<script type="text/javascript">
+    $('#summernote4').summernote({
+        height: 150
+        
+    });
+</script>
+<script type="text/javascript">
+    $('#summernote5').summernote({
+        height: 150
+        
+    });
+</script>
+<script type="text/javascript">
+    $('#summernote6').summernote({
+        height: 150
+        
+    });
+</script>
   </body>
 </html>

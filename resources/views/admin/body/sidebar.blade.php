@@ -114,6 +114,47 @@
             </div>
           </li>
 
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="setting">
+              <span class="menu-icon">
+              <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">settings</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="setting">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('social.setting')}}"> Social Setting</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('seo.setting')}}"> SEO Setting</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('prayer.setting')}}"> Prayer Setting</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('livetv.setting')}}"> LiveTv Setting </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('notice.setting')}}"> Notice Setting </a></li>
+
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#website" aria-expanded="false" aria-controls="website">
+              <span class="menu-icon">
+              <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Website</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="website">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('add.website')}}"> Add Website</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('all.website')}}"> All Website</a></li>
+
+
+              </ul>
+            </div>
+          </li>
+
+          
+
+
 
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{asset('backend/pages/forms/basic_elements.html')}}">

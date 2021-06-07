@@ -7,6 +7,14 @@ use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\backend\DistrictController;
 use App\Http\Controllers\backend\SubDistrictController;
 use App\Http\Controllers\backend\PostController;
+use App\Http\Controllers\backend\SettingController;
+use App\Http\Controllers\backend\SeoController;
+use App\Http\Controllers\backend\PrayerController;
+use App\Http\Controllers\backend\LiveTvController;
+use App\Http\Controllers\backend\NoticeController;
+use App\Http\Controllers\backend\WebController;
+
+
 
 
 
@@ -80,3 +88,37 @@ Route::get('/post/{id}/delete', [PostController::class,'DeletePost'])->name('del
 //json Data for Category and District
 Route::get('/get/subcategory/{category_id}', [PostController::class,'GetSubCategory']);
 Route::get('/get/subdistrict/{district_id}', [PostController::class,'GetSubDistrict']);
+
+
+//Social Settings
+Route::get('/social/setting', [SettingController::class,'SocialSetting'])->name('social.setting');
+Route::post('social/{id}/update', [SettingController::class,'SocialUpdate'])->name('update.social');
+
+//SEO Settings
+Route::get('/seo/setting', [SeoController::class,'SeoSetting'])->name('seo.setting');
+Route::post('seo/{id}/update', [SeoController::class,'SeoUpdate'])->name('update.seo');
+
+//Prayers Settings
+Route::get('/prayer/setting', [PrayerController::class,'PrayerSetting'])->name('prayer.setting');
+Route::post('prayer/{id}/update', [PrayerController::class,'PrayerUpdate'])->name('update.prayer');
+
+//LiveTv Settings
+Route::get('/livetv/setting', [LiveTvController::class,'LiveTvSetting'])->name('livetv.setting');
+Route::post('livetv/{id}/update', [LiveTvController::class,'LiveTvUpdate'])->name('update.livetv');
+Route::get('/livetv/{id}/active', [LiveTvController::class,'ActiveSetting'])->name('active.livetv');
+Route::get('/livetv/{id}/deactive', [LiveTvController::class,'DeactiveSetting'])->name('deactive.livetv');
+
+//Notice Settings
+Route::get('/notice/setting', [NoticeController::class,'NoticeSetting'])->name('notice.setting');
+Route::post('notice/{id}/update', [NoticeController::class,'NoticeUpdate'])->name('update.notice');
+Route::get('/notice/{id}/active', [NoticeController::class,'ActiveSetting'])->name('active.notice');
+Route::get('/notice/{id}/deactive', [NoticeController::class,'DeactiveSetting'])->name('deactive.notice');
+
+//Website Link Route
+Route::get('/addweb', [WebController::class,'AddWeb'])->name('add.website');
+Route::post('store/web', [WebController::class,'StoreWeb'])->name('store.website');
+Route::get('/allweb', [WebController::class,'allWeb'])->name('all.website');
+Route::get('/web/{id}/edit', [WebController::class,'EditWeb'])->name('edit.web');
+Route::post('web/{id}/update', [WebController::class,'UpdateWeb'])->name('update.web');
+Route::get('/web/{id}/delete', [WebController::class,'DeleteWeb'])->name('delete.web');
+
