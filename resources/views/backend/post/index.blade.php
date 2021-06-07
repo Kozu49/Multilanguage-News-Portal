@@ -54,9 +54,14 @@
                             <td> {{Str::limit($post->title_eng,'20','...')}} </td>             
                                 
                             <td> {{$post->category->category_eng}} </td> 
-                            
-                            <td> {{$post->district->district_eng}} </td> 
-                            
+                               <td>  
+                                  @if($post->district_id == Null)
+                                    <span>None</span>
+                                    @else
+                                    {{$post->district->district_eng}}
+                                  @endif
+                                  </td>
+                           
                             <td><img src="{{asset('image/postimg/'.$post->image)}}" style="height:100;width:100" alt=""></td>
                             
                             <td> {{$post->post_date}} </td>

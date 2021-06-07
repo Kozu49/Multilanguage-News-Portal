@@ -41,7 +41,7 @@ class PostController extends Controller
     public function StorePost(Request $request){
         $validated = $request->validate([
             'category_id' => 'required',
-            'district_id' => 'required',
+           
             'title_eng' => 'required',
             'title_nep' => 'required',
             'image' => 'required',
