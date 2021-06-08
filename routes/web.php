@@ -15,6 +15,10 @@ use App\Http\Controllers\backend\NoticeController;
 use App\Http\Controllers\backend\WebController;
 use App\Http\Controllers\backend\PhotoGalleryController;
 use App\Http\Controllers\backend\VideoController;
+use App\Models\Category;
+use App\Models\SubCategory;
+use App\Http\Controllers\frontend\ExtraController;
+
 
 
 
@@ -32,7 +36,8 @@ use App\Http\Controllers\backend\VideoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    
+    return view('main.home');
 })->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -139,4 +144,13 @@ Route::post('/store/video', [VideoController::class,'StoreVideo'])->name('store.
 Route::get('/video/{id}/edit', [VideoController::class,'EditVideo'])->name('edit.video');
 Route::post('/video/{id}/update', [VideoController::class,'UpdateVideo'])->name('update.video');
 Route::get('/video/{id}/delete', [VideoController::class,'DeleteVideo'])->name('delete.video');
+
+
+
+//FrontEnd
+
+//MultiLanguage Route
+Route::get('/lang/nep', [ExtraController::class,'Nepali'])->name('lan.nep');
+Route::get('/lang/eng', [ExtraController::class,'English'])->name('lan.eng');
+
 
