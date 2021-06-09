@@ -18,6 +18,7 @@ use App\Http\Controllers\backend\VideoController;
 use App\Models\Category;
 use App\Models\SubCategory;
 use App\Http\Controllers\frontend\ExtraController;
+use App\Http\Controllers\frontend\ViewPostController;
 
 
 
@@ -152,5 +153,8 @@ Route::get('/video/{id}/delete', [VideoController::class,'DeleteVideo'])->name('
 //MultiLanguage Route
 Route::get('/lang/nep', [ExtraController::class,'Nepali'])->name('lan.nep');
 Route::get('/lang/eng', [ExtraController::class,'English'])->name('lan.eng');
+
+//Single Post page 
+Route::get('/view/post/{id}', [ViewPostController::class,'SinglePost'])->name('view.post');
 
 

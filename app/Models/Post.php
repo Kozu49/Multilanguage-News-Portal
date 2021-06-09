@@ -44,5 +44,8 @@ class Post extends Model
     public function subdistrict(){
         return $this->hasOne('App\Models\SubDistrict','id','subdistrict_id');
     }
+    public function users(){
+        return $this->hasOne('App\Models\User','id','user_id');
+    }
 
 }

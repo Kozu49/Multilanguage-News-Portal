@@ -20,7 +20,8 @@
 							<div class="lead-news">
 	 <div class="service-img"><a href="#"><img src="{{asset('image/postimg/'.$firstsectionbig->image)}}" width="800px" alt="Notebook"></a></div>
 								<div class="content">
-		 <h4 class="lead-heading-01"><a href="#">
+		 <h4 class="lead-heading-01">
+		 <a href="{{route('view.post',$firstsectionbig->id)}}">
 		 @if(session()->get('lang')=='english')
 				{{$firstsectionbig->title_eng}}
 				@else
@@ -38,7 +39,7 @@
 								<div class="col-md-3 col-sm-3">
 									<div class="top-news">
 										<a href="#"><img src="{{asset('image/postimg/'.$firstsection->image)}}" alt="Notebook"></a>
-										<h4 class="heading-02"><a href="#">
+										<h4 class="heading-02"><a href="{{route('view.post',$firstsection->id)}}">
 										@if(session()->get('lang')=='english')
 										{{$firstsection->title_eng}}
 										@else
@@ -88,7 +89,7 @@
 									<div class="col-md-6 col-sm-6">
 										<div class="top-news">
 											<a href="#"><img src="{{asset('image/postimg/'.$fastcatpostbig->image)}}" alt="Notebook"></a>
-											<h4 class="heading-02"><a href="#">
+											<h4 class="heading-02"><a href="{{route('view.post',$fastcatpostbig->id)}}">
 											@if(session()->get('lang')=='english')
 											{{$fastcatpostbig->title_eng}}
 											@else
@@ -102,7 +103,7 @@
 									@foreach($fastcatpostsmalls as $fastcatpostsmall)
 									<div class="image-title">
 											<a href="#"><img src="{{asset('image/postimg/'.$fastcatpostsmall->image)}}" alt="Notebook"></a>
-											<h4 class="heading-03"><a href="#">
+											<h4 class="heading-03"><a href="{{route('view.post',$fastcatpostsmall->id)}}">
 											@if(session()->get('lang')=='english')
 											{{$fastcatpostsmall->title_eng}}
 											@else
@@ -145,7 +146,7 @@
 									<div class="col-md-6 col-sm-6">
 										<div class="top-news">
 											<a href="#"><img src="{{asset('image/postimg/'.$secondcatpostbig->image)}}" alt="Notebook"></a>
-											<h4 class="heading-02"><a href="#">
+											<h4 class="heading-02"><a href="{{route('view.post',$secondcatpostbig->id)}}">
 											@if(session()->get('lang')=='english')
 											{{$secondcatpostbig->title_eng}}
 											@else
@@ -158,7 +159,7 @@
 									@foreach($secondcatpostsmalls as $secondcatpostsmall)
 										<div class="image-title">
 											<a href="#"><img src="{{asset('image/postimg/'.$secondcatpostsmall->image)}}" alt="Notebook"></a>
-											<h4 class="heading-03"><a href="#">
+											<h4 class="heading-03"><a href="{{route('view.post',$secondcatpostsmall->id)}}">
 											@if(session()->get('lang')=='english')
 											{{$secondcatpostsmall->title_eng}}
 											@else
@@ -251,7 +252,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 							<div class="col-md-6 col-sm-6">
 								<div class="top-news">
 									<a href="#"><img src="{{asset('image/postimg/'.$threecatpostbig->image)}}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#"></a> 
+									<h4 class="heading-02"><a href="{{route('view.post',$threecatpostbig->id)}}"></a> 
 									@if(session()->get('lang')=='english')
 									{{$threecatpostbig->title_eng}}
 									@else
@@ -265,7 +266,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 							@foreach($threecatpostsmalls as $threecatpostsmall)
 								<div class="image-title">
 									<a href="#"><img src="{{asset('image/postimg/'.$threecatpostsmall->image)}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">
+									<h4 class="heading-03"><a href="{{route('view.post',$threecatpostsmall->id)}}">
 									@if(session()->get('lang')=='english')
 									{{$threecatpostsmall->title_eng}}
 									@else
@@ -303,7 +304,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 							<div class="col-md-6 col-sm-6">
 								<div class="top-news">
 									<a href="#"><img src="{{asset('image/postimg/'.$fourcatpostbig->image)}}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">
+									<h4 class="heading-02"><a href="{{route('view.post',$fourcatpostbig->id)}}">
 									@if(session()->get('lang')=='english')
 									{{$fourcatpostbig->title_eng}}
 									@else
@@ -317,7 +318,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 							@foreach($fourcatpostsmalls as $fourcatpostsmall)
 								<div class="image-title">
 									<a href="#"><img src="{{asset('image/postimg/'.$fourcatpostsmall->image)}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">
+									<h4 class="heading-03"><a href="{{route('view.post',$fourcatpostsmall->id)}}">
 									@if(session()->get('lang')=='english')
 									{{$fourcatpostsmall->title_eng}}
 									@else
@@ -360,7 +361,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 							<div class="col-md-6 col-sm-6">
 								<div class="top-news">
 									<a href="#"><img src="{{asset('image/postimg/'.$fifthcatpostbig->image)}}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">
+									<h4 class="heading-02"><a href="{{route('view.post',$fifthcatpostbig->id)}}">
 									@if(session()->get('lang')=='english')
 									{{$fifthcatpostbig->title_eng}}
 									@else
@@ -373,7 +374,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 								@foreach ($fifthcatpostsmalls as $fifthcatpostsmall)
 								<div class="image-title">
 									<a href="#"><img src="{{asset('image/postimg/'.$fifthcatpostsmall->image)}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">
+									<h4 class="heading-03"><a href="{{route('view.post',$fifthcatpostsmall->id)}}">
 									@if(session()->get('lang')=='english')
 									{{$fifthcatpostsmall->title_eng}}
 									@else
@@ -411,7 +412,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 							<div class="col-md-6 col-sm-6">
 								<div class="top-news">
 									<a href="#"><img src="{{asset('image/postimg/'.$sixthcatpostbig->image)}}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">
+									<h4 class="heading-02"><a href="{{route('view.post',$sixthcatpostbig->id)}}">
 									@if(session()->get('lang')=='english')
 									{{$sixthcatpostbig->title_eng}}
 									@else
@@ -424,7 +425,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 							@foreach($sixthcatpostsmalls as $sixthcatpostsmall)
 								<div class="image-title">
 									<a href="#"><img src="{{asset('image/postimg/'.$sixthcatpostsmall->image)}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">
+									<h4 class="heading-03"><a href="{{route('view.post',$sixthcatpostsmall->id)}}">
 									@if(session()->get('lang')=='english')
 									{{$sixthcatpostsmall->title_eng}}
 									@else
@@ -583,7 +584,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 								<div class="news-titletab">
 								@foreach($latests as $latest)
 									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">
+										<h4 class="heading-03"><a href="{{route('view.post',$latest->id)}}">
 										@if(session()->get('lang')=='english')
 										{{$latest->title_eng}}
 										@else
@@ -599,7 +600,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 								@foreach($populars as $popular)
 
 									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">
+										<h4 class="heading-03"><a href="{{route('view.post',$popular->id)}}">
 										@if(session()->get('lang')=='english')
 										{{$popular->title_eng}}
 										@else
@@ -614,7 +615,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 								<div class="news-titletab">
 								@foreach($highests as $highest)
 									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">
+										<h4 class="heading-03"><a href="{{route('view.post',$highest->id)}}">
 										@if(session()->get('lang')=='english')
 										{{$highest->title_eng}}
 										@else
