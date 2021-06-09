@@ -98,7 +98,7 @@
 					<div class="col-md-4 col-sm-4" style="height:250px;">
 						<div class="top-news sng-border-btm">
 							<a href="#"><img src="{{asset('image/postimg/'.$more->image)}}" alt="Notebook"></a>
-							<h4 class="heading-02"><a href="#">
+							<h4 class="heading-02"><a href="{{route('view.post',$more->id)}}">
                             @if(session()->get('lang')=='english')
                             {{$more->title_eng}}
                             @else

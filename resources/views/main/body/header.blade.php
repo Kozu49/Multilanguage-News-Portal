@@ -29,7 +29,7 @@
 								<!-- Collection of nav links and other content for toggling -->
 								<div id="navbarCollapse" class="collapse navbar-collapse">
 									<ul class="nav navbar-nav">
-										<li><a href="#">HOME</a></li>
+										<li><a href="{{route('home')}}">HOME</a></li>
 										
 
                                     @foreach($categories as $category)
@@ -41,7 +41,7 @@
                                         @endphp
 
 											<li class="dropdown">
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+												<a href="{{route('catpost',$category->id)}}" >
                                                 
                                                 @if(session()->get('lang')=='nepali')
                                                 {{$category->category_nep}}
@@ -55,7 +55,7 @@
 												@foreach($subcategories as $subcategory)
 
 
-                                                <li><a href="#">
+                                                <li><a href="{{route('subcatpost',$subcategory->id)}}">
                                                 @if(session()->get('lang')=='nepali')
                                                 {{$subcategory->subcategory_nep}}
                                                 @else

@@ -98,6 +98,8 @@ Route::get('/get/subcategory/{category_id}', [PostController::class,'GetSubCateg
 Route::get('/get/subdistrict/{district_id}', [PostController::class,'GetSubDistrict']);
 
 
+
+
 //Social Settings
 Route::get('/social/setting', [SettingController::class,'SocialSetting'])->name('social.setting');
 Route::post('social/{id}/update', [SettingController::class,'SocialUpdate'])->name('update.social');
@@ -156,5 +158,14 @@ Route::get('/lang/eng', [ExtraController::class,'English'])->name('lan.eng');
 
 //Single Post page 
 Route::get('/view/post/{id}', [ViewPostController::class,'SinglePost'])->name('view.post');
+
+//Post Category and Sub Category Pages
+Route::get('/catpost/post/{id}/', [ViewPostController::class,'CategoryPost'])->name('catpost');
+Route::get('/subcatpost/post/{id}/', [ViewPostController::class,'SubCategoryPost'])->name('subcatpost');
+
+//search district in Home page
+
+//above in ajax of subdistreict
+Route::get('/search/district/', [ExtraController::class,'SearchDistrict'])->name('search.district');
 
 

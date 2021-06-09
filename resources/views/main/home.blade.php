@@ -193,14 +193,11 @@
 					<div class="cetagory-title-03">Live TV</div>
 					<div class="photo">
 						<div class="embed-responsive embed-responsive-16by9 embed-responsive-item" style="margin-bottom:5px;">
-						<iframe width="560" height="315" src="https://www.youtube.com/embed/dsxbJtMD650" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>                                       {!! $live->embed_code !!}             
-						
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/-AzY7xqR6tg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>						
                         </div>
 					</div><!-- /.youtube-live-close -->	
                     @endif
                     
-
-
 					<!-- facebook-page-start -->
 					<div class="cetagory-title-03">Facebook </div>
 					<div class="fb-root">
@@ -533,6 +530,57 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 							</div>
 						</div>
 					</div>
+							<br><br>
+					@php
+
+							$districts=DB::table('districts')->get();
+					@endphp
+
+					<div class="row">
+						<div class="cetagory-title-02"><a href="#">
+						@if(session()->get('lang')=='english')
+							Search By District
+							@else
+							जिल्ला द्वारा खोजी गर्नुहोस्
+
+							@endif	
+						<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> সব খবর  </span></a></div>
+				
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+						<form action="{{route('search.district')}}" method="get">
+							@csrf						
+							<div class="row">
+								<div class=col-lg-4>
+								<select class="form-control" name="district_id" id="exampleSelectGender">
+								<option disabled="" selected="">--Select District--</option>
+								@foreach($districts as $district)
+								<option value="{{$district->id}}">{{$district->district_eng}} | {{$district->district_nep}}</option>
+								@endforeach
+								</select>
+								</div>
+								
+
+								<div class=col-lg-4>
+								<select class="form-control" name="subdistrict_id" id="subdistrict_id">
+                				<option disabled="" selected="">--Select SubDistrict--</option>
+                  
+                				</select>
+								</div>
+
+								<div class=col-lg-4>
+									<button class="btn btn-success btn-block">Search</button>
+								</div>
+								
+							</div>
+
+						</form>
+						
+					</div>
+
+					<br><br>
+
 					
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
@@ -541,6 +589,8 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 							</div>
 						</div>
 					</div><!-- /.add-close -->	
+
+
 				@php
 
 					$latests=DB::table('posts')->orderBy('id','desc')->limit(5)->get();
@@ -927,5 +977,32 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 			</div>
 		</div>
 	</section><!-- /.gallery-section-close -->
+
+
+	<!-- This is for subcategory ajax -->
+
+	<script type="text/javascript">
+   $(document).ready(function() {
+         $('select[name="district_id"]').on('change', function(){
+             var district_id = $(this).val();
+             if(district_id) {
+                 $.ajax({
+                     url: "{{  url('/get/subdistrict') }}/"+district_id,
+                     type:"GET",
+                     dataType:"json",
+                     success:function(data) {
+                        $("#subdistrict_id").empty();
+                              $.each(data,function(key,value){
+                                  $("#subdistrict_id").append('<option value="'+value.id+'">'+value.subdistrict_eng+'</option>');
+                              });
+                     },
+                    
+                 });
+             } else {
+                 alert('danger');
+             }
+         });
+     });
+</script>
 
 @endsection

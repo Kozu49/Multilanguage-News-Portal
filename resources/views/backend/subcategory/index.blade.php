@@ -51,7 +51,15 @@
                           <td> {{$i++}} </td>
                             <td> {{$subcategory->subcategory_eng}} </td>
                             <td> {{$subcategory->subcategory_nep}} </td> 
-                            <td>  {{$subcategory->category->category_eng}} | {{$subcategory->category->category_nep}}</td>   
+                            <td>  
+                              @if($subcategory->category==Null)
+                              <span class="text-primary">Null</span>
+                              @else
+                              {{$subcategory->category->category_eng}} | {{$subcategory->category->category_nep}}
+                              @endif
+                              
+
+                            </td>   
                             <td>  
                                 <a href="{{route('edit.subcategory',$subcategory->id)}}" class="btn btn-info">Edit</a>
                                 <a href="{{route('delete.subcategory',$subcategory->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>

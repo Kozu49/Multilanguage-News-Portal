@@ -26,6 +26,7 @@ $seo=DB::table('seos')->first();
         <link href="{{asset('frontend/assets/css/owl.carousel.min.css')}}" rel="stylesheet">
         <link href="{{asset('frontend/style.css')}}" rel="stylesheet">
 
+        <meta name="csrf-token" content="{{csrf_token()}}">
     </head>
     <body>
     @include('main.body.header')
