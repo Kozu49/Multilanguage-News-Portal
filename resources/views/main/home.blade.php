@@ -219,117 +219,221 @@
 		</div>
 	</section><!-- /.1st-news-section-close -->
 
+
+	@php
+
+$threecategory=DB::table('categories')->skip(2)->first();
+$threecatpostbig=DB::table('posts')->where('category_id',$threecategory->id)->where('bigthumbnail',1)->first();
+$threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)->where('bigthumbnail',Null)->limit(3)->get();
+
+@endphp
 	<!-- 2nd-news-section-start -->	
 	<section class="news-section">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<div class="bg-one">
-						<div class="cetagory-title-02"><a href="#">International <i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>All News  </span></a></div>
+						<div class="cetagory-title-02"><a href="#">
+						@if(session()->get('lang')=='english')
+								{{$threecategory->category_eng}}
+								@else
+								{{$threecategory->category_nep}}
+								@endif
+						 <i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>
+						 @if(session()->get('lang')=='english')
+										+ All News
+										@else
+									 	+ सबै समाचार:
+										@endif
+						 </span></a></div>
+						
 						<div class="row">
 							<div class="col-md-6 col-sm-6">
 								<div class="top-news">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">Armenia, Azerbaijan accused of breaking truce</a> </h4>
+									<a href="#"><img src="{{asset('image/postimg/'.$threecatpostbig->image)}}" alt="Notebook"></a>
+									<h4 class="heading-02"><a href="#"></a> 
+									@if(session()->get('lang')=='english')
+									{{$threecatpostbig->title_eng}}
+									@else
+									{{$threecatpostbig->title_nep}}
+									@endif
+									</h4>
 								</div>
 							</div>
+							
 							<div class="col-md-6 col-sm-6">
+							@foreach($threecatpostsmalls as $threecatpostsmall)
 								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">Armenia, Azerbaijan accused of breaking truce</a> </h4>
+									<a href="#"><img src="{{asset('image/postimg/'.$threecatpostsmall->image)}}" alt="Notebook"></a>
+									<h4 class="heading-03"><a href="#">
+									@if(session()->get('lang')=='english')
+									{{$threecatpostsmall->title_eng}}
+									@else
+									{{$threecatpostbig->title_nep}}
+									@endif
+									</a> </h4>
 								</div>
-								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">Armenia, Azerbaijan accused of breaking truce</a> </h4>
-								</div>
-								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">Armenia, Azerbaijan accused of breaking truce</a> </h4>
-								</div>
+								@endforeach
 							</div>
+							
 						</div>
 					</div>
 				</div>
+				@php
+				$fourcategory=DB::table('categories')->skip(3)->first();
+				$fourcatpostbig=DB::table('posts')->where('category_id',$fourcategory->id)->where('bigthumbnail',1)->first();
+				$fourcatpostsmalls=DB::table('posts')->where('category_id',$fourcategory->id)->where('bigthumbnail',Null)->limit(3)->get();
+				@endphp
 				<div class="col-md-6 col-sm-6">
 					<div class="bg-one">
-						<div class="cetagory-title-02"><a href="#">Politics <i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>All News  </span></a></div>
+						<div class="cetagory-title-02"><a href="#">
+						@if(session()->get('lang')=='english')
+						{{$fourcategory->category_eng}}
+						@else
+						{{$fourcategory->category_nep}}
+						@endif
+						<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>
+						@if(session()->get('lang')=='english')
+						+ All News
+						@else
+						+ सबै समाचार:
+						@endif
+						</span></a></div>
 						<div class="row">
 							<div class="col-md-6 col-sm-6">
 								<div class="top-news">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">BNP introduced culture of impunity: Quader</a> </h4>
+									<a href="#"><img src="{{asset('image/postimg/'.$fourcatpostbig->image)}}" alt="Notebook"></a>
+									<h4 class="heading-02"><a href="#">
+									@if(session()->get('lang')=='english')
+									{{$fourcatpostbig->title_eng}}
+									@else
+									{{$fourcatpostbig->title_nep}}
+									@endif
+									</a> </h4>
 								</div>
 							</div>
+							
 							<div class="col-md-6 col-sm-6">
+							@foreach($fourcatpostsmalls as $fourcatpostsmall)
 								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">BNP introduced culture of impunity: Quader</a> </h4>
+									<a href="#"><img src="{{asset('image/postimg/'.$fourcatpostsmall->image)}}" alt="Notebook"></a>
+									<h4 class="heading-03"><a href="#">
+									@if(session()->get('lang')=='english')
+									{{$fourcatpostsmall->title_eng}}
+									@else
+									{{$fourcatpostsmall->title_nep}}
+									@endif
+									</a> </h4>
 								</div>
-								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">BNP introduced culture of impunity: Quader</a> </h4>
-								</div>
-								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">BNP introduced culture of impunity: Quader</a> </h4>
-								</div>
+								@endforeach
 							</div>
+							
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- ******* -->
+
+			@php
+				$fifthcategory=DB::table('categories')->skip(4)->first();
+				$fifthcatpostbig=DB::table('posts')->where('category_id',$fifthcategory->id)->where('bigthumbnail',1)->first();
+				$fifthcatpostsmalls=DB::table('posts')->where('category_id',$fifthcategory->id)->where('bigthumbnail',Null)->limit(3)->get();
+			@endphp
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<div class="bg-one">
-						<div class="cetagory-title-02"><a href="#">Biz-Econ<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> All News  </span></a></div>
+						<div class="cetagory-title-02"><a href="#">
+						@if(session()->get('lang')=='english')
+						{{$fifthcategory->category_eng}}
+						@else
+						{{$fifthcategory->category_nep}}
+						@endif
+						<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>
+						@if(session()->get('lang')=='english')
+						+ All News
+						@else
+						+ सबै समाचार:
+						@endif
+						</span></a></div>
+
 						<div class="row">
 							<div class="col-md-6 col-sm-6">
 								<div class="top-news">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">Israel sends treaty delegation to Bahrain with Trump aides</a> </h4>
+									<a href="#"><img src="{{asset('image/postimg/'.$fifthcatpostbig->image)}}" alt="Notebook"></a>
+									<h4 class="heading-02"><a href="#">
+									@if(session()->get('lang')=='english')
+									{{$fifthcatpostbig->title_eng}}
+									@else
+									{{$fifthcatpostbig->title_nep}}
+									@endif
+									</a> </h4>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6">
+								@foreach ($fifthcatpostsmalls as $fifthcatpostsmall)
 								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">Israel sends treaty delegation to Bahrain with Trump aides</a> </h4>
+									<a href="#"><img src="{{asset('image/postimg/'.$fifthcatpostsmall->image)}}" alt="Notebook"></a>
+									<h4 class="heading-03"><a href="#">
+									@if(session()->get('lang')=='english')
+									{{$fifthcatpostsmall->title_eng}}
+									@else
+									{{$fifthcatpostsmall->title_nep}}
+									@endif
+									</a> </h4>
 								</div>
-								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">Israel sends treaty delegation to Bahrain with Trump aides</a> </h4>
-								</div>
-								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">Israel sends treaty delegation to Bahrain with Trump aides</a> </h4>
-								</div>
+								@endforeach
 							</div>
 						</div>
 					</div>
 				</div>
+
+				@php
+				$sixthcategory=DB::table('categories')->skip(5)->first();
+				$sixthcatpostbig=DB::table('posts')->where('category_id',$sixthcategory->id)->where('bigthumbnail',1)->first();
+				$sixthcatpostsmalls=DB::table('posts')->where('category_id',$sixthcategory->id)->where('bigthumbnail',Null)->limit(3)->get();
+				@endphp
 				<div class="col-md-6 col-sm-6">
 					<div class="bg-one">
-						<div class="cetagory-title-02"><a href="#">Education <i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> All News  </span></a></div>
+						<div class="cetagory-title-02"><a href="#">
+									@if(session()->get('lang')=='english')
+									{{$sixthcategory->category_eng}}
+									@else
+									{{$sixthcategory->category_nep}}
+									@endif
+						<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> 
+						@if(session()->get('lang')=='english')
+						+ All News
+						@else
+						+ सबै समाचार:
+						@endif
+						 </span></a></div>
 						<div class="row">
 							<div class="col-md-6 col-sm-6">
 								<div class="top-news">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-02"><a href="#">Students won't get form fill-up fee back</a> </h4>
+									<a href="#"><img src="{{asset('image/postimg/'.$sixthcatpostbig->image)}}" alt="Notebook"></a>
+									<h4 class="heading-02"><a href="#">
+									@if(session()->get('lang')=='english')
+									{{$sixthcatpostbig->title_eng}}
+									@else
+									{{$sixthcatpostbig->title_nep}}
+									@endif
+									</a> </h4>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6">
+							@foreach($sixthcatpostsmalls as $sixthcatpostsmall)
 								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">Students won't get form fill-up fee back</a> </h4>
+									<a href="#"><img src="{{asset('image/postimg/'.$sixthcatpostsmall->image)}}" alt="Notebook"></a>
+									<h4 class="heading-03"><a href="#">
+									@if(session()->get('lang')=='english')
+									{{$sixthcatpostsmall->title_eng}}
+									@else
+									{{$sixthcatpostsmall->title_nep}}
+									@endif
+									</a> </h4>
 								</div>
-								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">Students won't get form fill-up fee back</a> </h4>
-								</div>
-								<div class="image-title">
-									<a href="#"><img src="{{asset('frontend/assets/img/news.jpg')}}" alt="Notebook"></a>
-									<h4 class="heading-03"><a href="#">Students won't get form fill-up fee back</a> </h4>
-								</div>
+							@endforeach
+								
 							</div>
 						</div>
 					</div>
@@ -436,93 +540,90 @@
 							</div>
 						</div>
 					</div><!-- /.add-close -->	
+				@php
 
+					$latests=DB::table('posts')->orderBy('id','desc')->limit(5)->get();
+					$populars=DB::table('posts')->orderBy('id','desc')->inRandomOrder()->limit(5)->get();
+					$highests=DB::table('posts')->orderBy('id','asc')->inRandomOrder()->limit(5)->get();
+
+				@endphp
 
 				</div>
 				<div class="col-md-3 col-sm-3">
 					<div class="tab-header">
 						<!-- Nav tabs -->
 						<ul class="nav nav-tabs nav-justified" role="tablist">
-							<li role="presentation" class="active"><a href="#tab21" aria-controls="tab21" role="tab" data-toggle="tab" aria-expanded="false">Latest</a></li>
-							<li role="presentation" ><a href="#tab22" aria-controls="tab22" role="tab" data-toggle="tab" aria-expanded="true">Popular</a></li>
-							<li role="presentation" ><a href="#tab23" aria-controls="tab23" role="tab" data-toggle="tab" aria-expanded="true">Popular1</a></li>
+							<li role="presentation" class="active"><a href="#tab21" aria-controls="tab21" role="tab" data-toggle="tab" aria-expanded="false">
+							@if(session()->get('lang')=='english')
+							Latest
+							@else
+							पछिल्लो
+							@endif
+							</a></li>
+							<li role="presentation" ><a href="#tab22" aria-controls="tab22" role="tab" data-toggle="tab" aria-expanded="true">
+							@if(session()->get('lang')=='english')
+							Popular
+							@else
+							लोकप्रिय
+							@endif
+							</a></li>
+							<li role="presentation" ><a href="#tab23" aria-controls="tab23" role="tab" data-toggle="tab" aria-expanded="true">
+							@if(session()->get('lang')=='english')
+							Highest
+							@else
+							उच्च
+							@endif
+							</a></li>
 						</ul>
 
 						<!-- Tab panes -->
 						<div class="tab-content ">
 							<div role="tabpanel" class="tab-pane in active" id="tab21">
+
 								<div class="news-titletab">
+								@foreach($latests as $latest)
 									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
+										<h4 class="heading-03"><a href="#">
+										@if(session()->get('lang')=='english')
+										{{$latest->title_eng}}
+										@else
+										{{$latest->title_nep}}
+										@endif
+										</a> </h4>
 									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
+								@endforeach
 								</div>
 							</div>
 							<div role="tabpanel" class="tab-pane fade" id="tab22">
 								<div class="news-titletab">
+								@foreach($populars as $popular)
+
 									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
+										<h4 class="heading-03"><a href="#">
+										@if(session()->get('lang')=='english')
+										{{$popular->title_eng}}
+										@else
+										{{$popular->title_nep}}
+										@endif
+										</a> </h4>
 									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
+								@endforeach
 								</div>                                          
 							</div>
 							<div role="tabpanel" class="tab-pane fade" id="tab23">	
 								<div class="news-titletab">
+								@foreach($highests as $highest)
 									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
+										<h4 class="heading-03"><a href="#">
+										@if(session()->get('lang')=='english')
+										{{$highest->title_eng}}
+										@else
+										{{$highest->title_nep}}
+										@endif
+										</a> </h4>
 									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
-									<div class="news-title-02">
-										<h4 class="heading-03"><a href="#">Both education and life must be saved</a> </h4>
-									</div>
+								@endforeach
+									
 								</div>						                                          
 							</div>
 						</div>
@@ -659,64 +760,53 @@
 
 	
 
+				@php
+				$photobig=DB::table('photos')->where('type',1)->orderBy('id','desc')->first();				
+				$photosmalls=DB::table('photos')->where('type',0)->orderBy('id','desc')->limit(5)->get();				
 
+				@endphp
 	
-
-
 	<!-- gallery-section-start -->	
 	<section class="news-section">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8 col-sm-7">
-					<div class="gallery_cetagory-title"> Photo Gallery </div>
+					<div class="gallery_cetagory-title"> 
+					@if(session()->get('lang')=='english')
+							Photo Gallery
+							@else
+							तस्बिर पुस्तिका
+							@endif
+					 </div>
 
 					<div class="row">
 	                    <div class="col-md-8 col-sm-8">
 	                        <div class="photo_screen">
 	                            <div class="myPhotos" style="width:100%">
-                                      <img src="{{asset('frontend/assets/img/news.jpg')}}"  alt="Avatar">
+								
+                                      <img src="{{asset('image/photogallery/'.$photobig->photo)}}"  alt="Avatar">
 	                            </div>
 	                        </div>
 	                    </div>
 	                    <div class="col-md-4 col-sm-4">
+						
 	                        <div class="photo_list_bg">
+							@foreach($photosmalls as $photosmall)
 	                            
 	                            <div class="photo_img photo_border active">
-	                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
+	                                <img src="{{asset('image/photogallery/'.$photosmall->photo)}}" alt="image" onclick="currentDiv(1)">
 	                                <div class="heading-03">
-	                                    Casting of Israeli actress as Cleopatra sparks anger
+									
+									{{$photosmall->title}}
+									
 	                                </div>
 	                            </div>
 
-	                            <div class="photo_img photo_border">
-	                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
-	                                <div class="heading-03">
-	                                   Casting of Israeli actress as Cleopatra sparks anger
-	                                </div>
-	                            </div>
+	                            
 
-	                            <div class="photo_img photo_border">
-	                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
-	                                <div class="heading-03">
-	                                   Casting of Israeli actress as Cleopatra sparks anger
-	                                </div>
-	                            </div>
-
-	                            <div class="photo_img photo_border">
-	                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
-	                                <div class="heading-03">
-	                                   Casting of Israeli actress as Cleopatra sparks anger
-	                                </div>
-	                            </div>
-
-	                            <div class="photo_img photo_border">
-	                                <img src="{{asset('frontend/assets/img/news.jpg')}}" alt="image" onclick="currentDiv(1)">
-	                                <div class="heading-03">
-	                                   Casting of Israeli actress as Cleopatra sparks anger
-	                                </div>
-	                            </div>
-
+	                            @endforeach
 	                        </div>
+							
 	                    </div>
 	                </div>
 
@@ -757,16 +847,29 @@
                     Video Gallery clickable  jquary  close
                 =========================================-->
 
+
+				@php
+				$videobig=DB::table('videos')->where('type',1)->orderBy('id','desc')->first();				
+				$videosmalls=DB::table('videos')->where('type',0)->orderBy('id','desc')->limit(3)->get();				
+
+				@endphp
+
 				</div>
 				<div class="col-md-4 col-sm-5">
-					<div class="gallery_cetagory-title"> photo Gallery </div>
+					<div class="gallery_cetagory-title"> 
+					@if(session()->get('lang')=='english')
+							Video Gallery
+							@else
+							भिडियो ग्यालरी
+							@endif
+					 </div>
 
 					<div class="row">
                         <div class="col-md-12 col-sm-12">
                             <div class="video_screen">
                                 <div class="myVideos" style="width:100%">
                                     <div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
-                                    <iframe width="853" height="480" src="https://www.youtube.com/embed/AWM8164ksVY?list=RDAWM8164ksVY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe width="853" height="480" src="https://www.youtube.com/embed/{{$videobig->embed_code}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                                 </div>
                             </div>
@@ -775,46 +878,17 @@
 
                     <div class="row">
                         <div class="col-md-12">
+						
                         
                             <div class="gallery_sec owl-carousel">
-
-                                <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                    <img src="{{asset('frontend/assets/img/news.jpg')}}"  alt="Avatar">
-                                    <div class="heading-03">
-                                        <div class="content_padding">
-                                           Kumar Sanu tests positive for coronavirus
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                    <img src="{{asset('frontend/assets/img/news.jpg')}}"  alt="Avatar">
-                                    <div class="heading-03">
-                                        <div class="content_padding">
-                                       Kumar Sanu tests positive for coronavirus
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                    <img src="{{asset('frontend/assets/img/news.jpg')}}"  alt="Avatar">
-                                    <div class="heading-03">
-                                        <div class="content_padding">
-                                          Kumar Sanu tests positive for coronavirus  
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="video_image" style="width:100%" onclick="currentDivs(1)">
-                                    <img src="{{asset('frontend/assets/img/news.jpg')}}"  alt="Avatar">
-                                    <div class="heading-03">
-                                        <div class="content_padding">
-                                           Kumar Sanu tests positive for coronavirus
-                                        </div>
-                                    </div>
-                                </div>
-
+							@foreach($videosmalls as $videosmall)
+							
+								<div class="embed-responsive embed-responsive-16by9 embed-responsive-item">
+                                <iframe width="853" height="480" src="https://www.youtube.com/embed/{{$videosmall->embed_code}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+								</div> 							
+							@endforeach                        
                             </div>
+							  
                         </div>
                     </div>
 
