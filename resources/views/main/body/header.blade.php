@@ -2,6 +2,7 @@
 
     $categories=DB::table('categories')->orderBy('id','ASC')->get();
     $social=DB::table('socials')->first();
+	$horizontal=DB::table('advertisements')->where('type',2)->first();
 @endphp
 
 <!-- header-start -->
@@ -151,7 +152,15 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-					<div class="top-add"><img src="{{asset('frontend/assets/img/top-ad.jpg')}}" alt="" /></div>
+					<div class="top-add">
+				@if($horizontal==Null)
+
+				@else
+					<a href="{{$horizontal->link}}" target="_blink"><img src="{{asset('image/ads/'.$horizontal->ads)}}" ></a>
+					
+					@endif
+					</div>
+				
 				</div>
 			</div>
 		</div>

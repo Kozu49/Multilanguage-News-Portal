@@ -19,6 +19,7 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use App\Http\Controllers\frontend\ExtraController;
 use App\Http\Controllers\frontend\ViewPostController;
+use App\Http\Controllers\backend\AdsController;
 
 
 
@@ -164,8 +165,15 @@ Route::get('/catpost/post/{id}/', [ViewPostController::class,'CategoryPost'])->n
 Route::get('/subcatpost/post/{id}/', [ViewPostController::class,'SubCategoryPost'])->name('subcatpost');
 
 //search district in Home page
-
 //above in ajax of subdistreict
 Route::get('/search/district/', [ExtraController::class,'SearchDistrict'])->name('search.district');
 
+
+//Ads Backend Route
+Route::get('/list/ads/', [AdsController::class,'ListAds'])->name('list.ads');
+Route::get('/add/ads/', [AdsController::class,'AddAds'])->name('add.ads');
+Route::post('/store/ads/', [AdsController::class,'StoreAds'])->name('store.ads');
+Route::get('/edit/ads/{id}', [AdsController::class,'EditAds'])->name('edit.ads');
+Route::post('/update/ads/{id}', [AdsController::class,'UpdateAds'])->name('update.ads');
+Route::get('/delete/ads/{id}', [AdsController::class,'DeleteAds'])->name('delete.ads');
 

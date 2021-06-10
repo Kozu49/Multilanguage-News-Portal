@@ -26,6 +26,8 @@ $seo=DB::table('seos')->first();
         <link href="{{asset('frontend/assets/css/owl.carousel.min.css')}}" rel="stylesheet">
         <link href="{{asset('frontend/style.css')}}" rel="stylesheet">
 
+        <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=60c1b305f964f40012bca31d&product=inline-share-buttons" async="async"></script>
+
         <meta name="csrf-token" content="{{csrf_token()}}">
     </head>
     <body>

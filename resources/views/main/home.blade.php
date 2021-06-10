@@ -52,11 +52,24 @@
 								@endforeach
 								
 							</div>
+
+
+				@php
+				$horizontal=DB::table('advertisements')->where('type',2)->skip(1)->first();
+				@endphp
 					
 					<!-- add-start -->	
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<div class="add"><img src="{{asset('frontend/assets/img/top-ad.jpg')}}" alt="" /></div>
+						
+							<div class="add">
+							@if($horizontal==Null)
+
+							@else
+								<a href="{{$horizontal->link}}" target="_blink"><img src="{{asset('image/ads/'.$horizontal->ads)}}" alt="" /></a>
+							@endif
+							
+							</div>
 						</div>
 					</div><!-- /.add-close -->	
 					
@@ -177,9 +190,20 @@
 				</div>
 				<div class="col-md-3 col-sm-3">
 					<!-- add-start -->	
+					@php
+					$vertical=DB::table('advertisements')->where('type',1)->first();
+					@endphp
+
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
-							<div class="sidebar-add"><img src="{{asset('frontend/assets/img/add_01.jpg')}}" alt="" /></div>
+							<div class="sidebar-add">
+							@if($vertical==Null)
+							
+							@else
+							<a href="{{$vertical->link}}" target="_blink"><img src="{{asset('image/ads/'.$vertical->ads)}}" alt="" /></a>
+							@endif
+
+							</div>
 						</div>
 					</div><!-- /.add-close -->	
 					
@@ -198,17 +222,32 @@
 					</div><!-- /.youtube-live-close -->	
                     @endif
                     
+					@php
+					$vertical=DB::table('advertisements')->where('type',1)->skip(1)->first();
+					@endphp
+
+
 					<!-- facebook-page-start -->
 					<div class="cetagory-title-03">Facebook </div>
-					<div class="fb-root">
-						facebook page here
-					</div><!-- /.facebook-page-close -->	
+					<div id="fb-root"></div>
+					<script async defer crossorigin="anonymous" 
+					src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="BcCXcdxX"></script>
+					
+					<div class="fb-page" data-href="https://www.facebook.com/KLoop1004/" 
+					data-tabs="" data-width="" data-height="" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+					<blockquote cite="https://www.facebook.com/KLoop1004/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/KLoop1004/">K Loop</a></blockquote></div>
+					<!-- /.facebook-page-close	 -->
 					
 					<!-- add-start -->	
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 							<div class="sidebar-add">
-								<img src="{{asset('frontend/assets/img/add_01.jpg')}}" alt="" />
+							@if($vertical==Null)
+							
+							@else
+								<a href="{{$vertical->link}}" target="_blink"><img src="{{asset('image/ads/'.$vertical->ads)}}" alt="" /></a>
+
+							@endif
 							</div>
 						</div>
 					</div><!-- /.add-close -->	
@@ -437,13 +476,33 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 					</div>
 				</div>
 			</div>
+			@php
+				$horizontal=DB::table('advertisements')->where('type',2)->skip(2)->first();
+			@endphp
+
+
 			<!-- add-start -->	
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
-					<div class="add"><img src="{{asset('frontend/assets/img/top-ad.jpg')}}" alt="" /></div>
+					<div class="add">
+					@if($horizontal==Null)
+
+				@else
+					<a href="{{$horizontal->link}}" target="_blink"><img src="{{asset('image/ads/'.$horizontal->ads)}}" alt="" /></a>
+				@endif
+					</div>
 				</div>
+				@php
+				$horizontal=DB::table('advertisements')->where('type',2)->skip(3)->first();
+				@endphp
 				<div class="col-md-6 col-sm-6">
-					<div class="add"><img src="{{asset('frontend/assets/img/top-ad.jpg')}}" alt="" /></div>
+					<div class="add">
+					@if($horizontal==Null)
+
+					@else
+					<a href="{{$horizontal->link}}"target="_blink"><img src="{{asset('image/ads/'.$horizontal->ads)}}" alt="" /></a>
+					@endif
+					</div>
 				</div>
 			</div><!-- /.add-close -->	
 			
@@ -581,11 +640,19 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 
 					<br><br>
 
+
+					@php
+					$horizontal=DB::table('advertisements')->where('type',2)->skip(4)->first();
+					@endphp
 					
 					<div class="row">
 						<div class="col-md-12 col-sm-12">
 							<div class="sidebar-add">
-								<img src="{{asset('frontend/assets/img/top-ad.jpg')}}" alt="" />
+							@if($horizontal==Null)
+
+							@else
+								<a href="{{$horizontal->link}}" target="_blink"><img src="{{asset('image/ads/'.$horizontal->ads)}}" alt="" /></a>
+							@endif
 							</div>
 						</div>
 					</div><!-- /.add-close -->	

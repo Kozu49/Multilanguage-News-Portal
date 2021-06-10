@@ -49,13 +49,8 @@
 						
 						</div>
 						<div class="col-md-6 col-sm-6 pull-right"> 						
-							<!-- <ul class="social-nav">
-								<li><a href="" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent('#'),'facebook-share-dialog','width=626,height=436'); return false;" target="_blank" title="Facebook" rel="nofollow" class="facebook"><i class="fa fa-facebook"></i></a></li>
-								<li><a target="_blank" href="" onclick="javascript:window.open('https://twitter.com/share?text=‘#'); return false;" title="Twitter" rel="nofollow" class="twitter"><i class="fa fa-twitter"></i></a></li>
-								<li><a target="_blank" href="" onclick="window.open('https://plus.google.com/share?url=#'); return false;" title="Google plus" rel="nofollow" class="google"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="#" target="_blank" title="Print" rel="nofollow" class="print"><i class="fa fa-print"></i></a></li>
-						
-							</ul>						    -->
+
+
 						</div>						
 					</div>				 
 				 </div>				
@@ -66,6 +61,9 @@
 			<div class="col-md-8 col-sm-8">
 				<div class="single-news">
 					<img src="{{asset('image/postimg/'.$post->image)}}" alt="" />
+					<br><br>
+					<div class="sharethis-inline-share-buttons"></div>
+
 					<h4 class="caption"> 
                         @if(session()->get('lang')=='english')
                         {{$post->title_eng}}
@@ -82,6 +80,12 @@
                         @endif
                     </p>
 				</div>
+
+				<div id="fb-root"></div>
+				<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="i2lNYFso"></script>
+				<div class="fb-comments" data-href="{{Request::url()}}" data-width="600" data-numposts="8"></div>
+
+
                 @php
                 $mores=DB::table('posts')->where('category_id',$post->category_id)->orderBy('id','desc')->limit(6)->get();
 				@endphp
