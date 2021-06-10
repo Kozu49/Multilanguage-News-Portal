@@ -8,6 +8,11 @@ use App\models\Website;
 
 class WebController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
     public function AddWeb(){
         $webs=Website::all();
         return view('backend/website/create',['webs'=>$webs]);

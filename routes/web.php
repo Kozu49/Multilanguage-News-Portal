@@ -20,6 +20,7 @@ use App\Models\SubCategory;
 use App\Http\Controllers\frontend\ExtraController;
 use App\Http\Controllers\frontend\ViewPostController;
 use App\Http\Controllers\backend\AdsController;
+use App\Http\Controllers\backend\RoleController;
 
 
 
@@ -176,4 +177,14 @@ Route::post('/store/ads/', [AdsController::class,'StoreAds'])->name('store.ads')
 Route::get('/edit/ads/{id}', [AdsController::class,'EditAds'])->name('edit.ads');
 Route::post('/update/ads/{id}', [AdsController::class,'UpdateAds'])->name('update.ads');
 Route::get('/delete/ads/{id}', [AdsController::class,'DeleteAds'])->name('delete.ads');
+
+//Writer Role Routes
+Route::get('/add/writer/', [RoleController::class,'AddWriter'])->name('add.writer');
+Route::post('/store/writer/', [RoleController::class,'StoreWriter'])->name('store.writer');
+Route::get('/all/writer/', [RoleController::class,'AllWriter'])->name('all.writer');
+Route::get('/Edit/writer/{id}/', [RoleController::class,'EditWriter'])->name('edit.writer');
+Route::post('/update/writer/{id}/', [RoleController::class,'UpdateWriter'])->name('update.writer');
+Route::get('/delete/writer/{id}/', [RoleController::class,'DeleteWriter'])->name('delete.writer');
+
+
 

@@ -8,6 +8,11 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
     public function Index(){
         $categories=Category::orderBy('id','desc')->paginate(5);
         return view('backend.category.index',['categories'=>$categories]);

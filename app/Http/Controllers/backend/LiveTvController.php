@@ -8,6 +8,11 @@ use App\Models\LiveTv;
 
 class LiveTvController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
     public function LiveTvSetting(){
 
         $livetv=LiveTv::all()->first();

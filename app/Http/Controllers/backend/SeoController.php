@@ -8,6 +8,11 @@ use App\Models\Seo;
 
 class SeoController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
     public function SeoSetting(){
 
         $seo=Seo::all()->first();

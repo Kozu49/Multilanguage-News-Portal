@@ -10,6 +10,11 @@ use Intervention\Image\Facades\Image;
 
 class PhotoGalleryController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
     public function PhotoGallery(){
         $photos=Photo::orderBy('id','desc')->paginate(5);
         return view('backend/gallery/photos',['photos'=>$photos]);

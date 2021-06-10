@@ -12,6 +12,11 @@ use App\Models\Category;
 
 class SubCategoryController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
     public function Index(){
 
         $subcategories=SubCategory::orderBy('id','desc')->paginate(5);

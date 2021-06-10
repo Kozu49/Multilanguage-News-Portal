@@ -10,6 +10,11 @@ use App\Models\District;
 
 class SubDistrictController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
     public function Index(){
 
         $subdistricts=SubDistrict::orderBy('id','desc')->paginate(5);

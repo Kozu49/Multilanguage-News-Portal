@@ -8,6 +8,11 @@ use App\Models\Prayer;
 
 class PrayerController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
     public function PrayerSetting(){
         $prayer=Prayer::all()->first();
         return view('backend/setting/prayer',['prayer'=>$prayer]);

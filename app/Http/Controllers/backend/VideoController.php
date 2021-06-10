@@ -8,6 +8,11 @@ use App\Models\Video;
 
 class VideoController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
     public function VideoGallery(){
         $videos=Video::orderBy('id','desc')->paginate(5);
         return view('backend/gallery/video',['videos'=>$videos]);

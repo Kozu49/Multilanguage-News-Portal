@@ -57,13 +57,16 @@
             <span class="nav-link">Navigation</span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="{{route('dashboard')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+
+
+          @if(Auth::user()->category==1)
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <span class="menu-icon">
@@ -79,6 +82,10 @@
               </ul>
             </div>
           </li>
+
+          @endif
+
+          @if(Auth::user()->district==1)
 
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#district" aria-expanded="false" aria-controls="district">
@@ -96,7 +103,10 @@
               </ul>
             </div>
           </li>
+          @endif
 
+
+          @if(Auth::user()->post==1)
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#post" aria-expanded="false" aria-controls="post">
               <span class="menu-icon">
@@ -113,7 +123,9 @@
               </ul>
             </div>
           </li>
+        @endif
 
+        @if(Auth::user()->setting==1)
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="setting">
               <span class="menu-icon">
@@ -133,7 +145,9 @@
               </ul>
             </div>
           </li>
+          @endif
 
+          @if(Auth::user()->website==1)
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#website" aria-expanded="false" aria-controls="website">
               <span class="menu-icon">
@@ -151,7 +165,9 @@
               </ul>
             </div>
           </li>
+          @endif
 
+          @if(Auth::user()->gallery==1)
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#photo" aria-expanded="false" aria-controls="photo">
               <span class="menu-icon">
@@ -170,8 +186,10 @@
             </div>
           </li>
 
+          @endif
 
 
+          @if(Auth::user()->advertisement==1)
 
           <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ads" aria-expanded="false" aria-controls="ads">
@@ -190,7 +208,28 @@
             </div>
           </li>
 
+          @endif
 
+          @if(Auth::user()->role==1)
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-toggle="collapse" href="#role" aria-expanded="false" aria-controls="role">
+              <span class="menu-icon">
+              <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">User Roles</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="role">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('add.writer')}}"> Add Writer</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('all.writer')}}"> All Writer</a></li>
+
+
+              </ul>
+            </div>
+          </li>
+
+          @endif
           
           
           

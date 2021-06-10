@@ -79,12 +79,13 @@
 							$fastcatpostbig=DB::table('posts')->where('category_id',$fastcategory->id)->where('bigthumbnail',1)->first();
 							$fastcatpostsmalls=DB::table('posts')->where('category_id',$fastcategory->id)->where('bigthumbnail',Null)->limit(3)->get();
 
+							
 						@endphp
 
 					<div class="row">
 						<div class="col-md-6 col-sm-6">
 							<div class="bg-one">
-								<div class="cetagory-title"><a href="#">
+								<div class="cetagory-title"><a href="{{route('catpost',$fastcategory->id)}}">
 										@if(session()->get('lang')=='english')
 										{{$fastcategory->category_eng}}
 										@else
@@ -142,7 +143,7 @@
 
 						<div class="col-md-6 col-sm-6">
 							<div class="bg-one">
-								<div class="cetagory-title"><a href="#">
+								<div class="cetagory-title"><a href="{{route('catpost',$secondcategory->id)}}">
 								@if(session()->get('lang')=='english')
 								{{$secondcategory->category_eng}}
 								@else
@@ -270,7 +271,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<div class="bg-one">
-						<div class="cetagory-title-02"><a href="#">
+						<div class="cetagory-title-02"><a href="{{route('catpost',$threecategory->id)}}">
 						@if(session()->get('lang')=='english')
 								{{$threecategory->category_eng}}
 								@else
@@ -278,9 +279,9 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 								@endif
 						 <i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>
 						 @if(session()->get('lang')=='english')
-										+ All News
+										All News
 										@else
-									 	+ सबै समाचार:
+									 	सबै समाचार:
 										@endif
 						 </span></a></div>
 						
@@ -323,7 +324,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 				@endphp
 				<div class="col-md-6 col-sm-6">
 					<div class="bg-one">
-						<div class="cetagory-title-02"><a href="#">
+						<div class="cetagory-title-02"><a href="{{route('catpost',$fourcategory->id)}}">
 						@if(session()->get('lang')=='english')
 						{{$fourcategory->category_eng}}
 						@else
@@ -331,9 +332,9 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 						@endif
 						<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>
 						@if(session()->get('lang')=='english')
-						+ All News
+						All News
 						@else
-						+ सबै समाचार:
+						सबै समाचार:
 						@endif
 						</span></a></div>
 						<div class="row">
@@ -379,7 +380,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 			<div class="row">
 				<div class="col-md-6 col-sm-6">
 					<div class="bg-one">
-						<div class="cetagory-title-02"><a href="#">
+						<div class="cetagory-title-02"><a href="{{route('catpost',$fifthcategory->id)}}">
 						@if(session()->get('lang')=='english')
 						{{$fifthcategory->category_eng}}
 						@else
@@ -387,9 +388,9 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 						@endif
 						<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i>
 						@if(session()->get('lang')=='english')
-						+ All News
+						All News
 						@else
-						+ सबै समाचार:
+						सबै समाचार:
 						@endif
 						</span></a></div>
 
@@ -431,7 +432,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 				@endphp
 				<div class="col-md-6 col-sm-6">
 					<div class="bg-one">
-						<div class="cetagory-title-02"><a href="#">
+						<div class="cetagory-title-02"><a href="{{route('catpost',$sixthcategory->id)}}">
 									@if(session()->get('lang')=='english')
 									{{$sixthcategory->category_eng}}
 									@else
@@ -439,9 +440,9 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 									@endif
 						<i class="fa fa-angle-right" aria-hidden="true"></i> <span><i class="fa fa-plus" aria-hidden="true"></i> 
 						@if(session()->get('lang')=='english')
-						+ All News
+						All News
 						@else
-						+ सबै समाचार:
+						सबै समाचार:
 						@endif
 						 </span></a></div>
 						<div class="row">

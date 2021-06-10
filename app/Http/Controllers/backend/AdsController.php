@@ -10,6 +10,12 @@ use Intervention\Image\Facades\Image;
 
 class AdsController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+
+    }
+    
     public function ListAds(){
         $adss=Advertisement::orderBy('id','desc')->paginate(5);
         return view('backend.ads.listads',['adss'=>$adss]);
