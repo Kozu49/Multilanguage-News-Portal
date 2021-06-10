@@ -3,6 +3,7 @@
     $categories=DB::table('categories')->orderBy('id','ASC')->get();
     $social=DB::table('socials')->first();
 	$horizontal=DB::table('advertisements')->where('type',2)->first();
+	$webset=DB::table('website_settings')->first();
 @endphp
 
 <!-- header-start -->
@@ -11,7 +12,9 @@
 			<div class="row">
 				<div class="col-xs-6 col-md-2 col-sm-4">
 					<div class="header_logo">
-						<a href=""><img src="{{asset('frontend/assets/img/demo_logo.png')}}"></a> 
+					@if($webset->logo)
+						<a href=""><img src="{{asset('image/logo/'.$webset->logo)}}"></a> 
+					@endif
 					</div>
 				</div>              
 				<div class="col-xs-6 col-md-8 col-sm-8">

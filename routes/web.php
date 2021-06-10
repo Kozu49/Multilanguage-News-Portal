@@ -21,6 +21,7 @@ use App\Http\Controllers\frontend\ExtraController;
 use App\Http\Controllers\frontend\ViewPostController;
 use App\Http\Controllers\backend\AdsController;
 use App\Http\Controllers\backend\RoleController;
+use App\Http\Controllers\backend\WebSettingController;
 
 
 
@@ -185,6 +186,10 @@ Route::get('/all/writer/', [RoleController::class,'AllWriter'])->name('all.write
 Route::get('/Edit/writer/{id}/', [RoleController::class,'EditWriter'])->name('edit.writer');
 Route::post('/update/writer/{id}/', [RoleController::class,'UpdateWriter'])->name('update.writer');
 Route::get('/delete/writer/{id}/', [RoleController::class,'DeleteWriter'])->name('delete.writer');
+
+//Website Setting Route
+Route::get('/website/setting/', [WebSettingController::class,'Websetting'])->name('website.setting');
+Route::post('/update/websetting/{id}/', [WebSettingController::class,'UpdateWebSetting'])->name('update.websetting');
 
 
 

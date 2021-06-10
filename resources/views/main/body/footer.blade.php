@@ -33,23 +33,60 @@
 		</div>
 	</section><!-- /.top-footer-close -->
 	
+
+	@php
+	$webset=DB::table('website_settings')->first();
+
+
+	@endphp
 	<!-- middle-footer-start -->	
 	<section class="middle-footer">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-4 col-sm-4">
 					<div class="editor-one">
-						Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is 
+					@if(session()->get('lang')=='english')
+					Company Address:
+					@else
+					कम्पनीको ठेगाना:
+					@endif
+
+					<br>
+					@if(session()->get('lang')=='english')
+					{!! $webset->address_eng !!}
+					@else
+					{!! $webset->address_nep !!}					
+					@endif
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
-					<div class="editor-two">
-					Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is 
+					<div class="editor-one">
+					@if(session()->get('lang')=='english')
+					Company Phone:
+					@else
+					कम्पनी फोन:					
+					@endif
+
+					<br>
+					@if(session()->get('lang')=='english')
+					{{ $webset->phone_eng }}
+					@else
+					{{ $webset->phone_nep }}
+					@endif
 					</div>
 				</div>
 				<div class="col-md-4 col-sm-4">
 					<div class="editor-three">
-						Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is 
+					@if(session()->get('lang')=='english')
+					Company Email:
+					@else
+					कम्पनी ईमेल:					
+					@endif
+
+					<br>
+					
+					{{ $webset->email }}
+					
 					</div>
 				</div>
 			</div>
