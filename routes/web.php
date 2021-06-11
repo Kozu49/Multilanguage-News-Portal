@@ -192,4 +192,9 @@ Route::get('/website/setting/', [WebSettingController::class,'Websetting'])->nam
 Route::post('/update/websetting/{id}/', [WebSettingController::class,'UpdateWebSetting'])->name('update.websetting');
 
 
-
+//Account Setting Routes
+Route::get('/account/setting/', [AdminController::class,'Accountsetting'])->name('account.setting');
+Route::get('/account/edit/{id}/', [AdminController::class,'AccountEdit'])->name('edit.profile');
+Route::post('/account/update/{id}/', [AdminController::class,'AccountUpdate'])->name('update.profile');
+Route::get('/password/change/{id}/', [AdminController::class,'PasswordChange'])->name('change.password');
+Route::post('/password/update/{id}/', [AdminController::class,'PasswordUpdate'])->name('password.update');

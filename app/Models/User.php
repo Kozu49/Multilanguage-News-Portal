@@ -34,7 +34,11 @@ class User extends Authenticatable
         'website',
         'gallery',
         'advertisement',
-        'role',
+        'mobile',
+        'address',
+        'image',
+        'gender',
+        'position',
     ];
 
     /**
