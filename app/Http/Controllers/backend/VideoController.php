@@ -80,6 +80,11 @@ class VideoController extends Controller
 
     }
 
+    public function VideoAll(){
+
+        $video=Video::all();
+        return view('main.allvideo',['videos'=>$video]);
+    }
 
 
 

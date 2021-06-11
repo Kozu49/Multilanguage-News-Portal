@@ -143,6 +143,17 @@ Route::get('photo/{id}/edit', [PhotoGalleryController::class,'EditPhoto'])->name
 Route::post('photo/{id}/update', [PhotoGalleryController::class,'UpdatePhoto'])->name('update.photo');
 Route::get('photo/{id}/delete', [PhotoGalleryController::class,'DeletePhoto'])->name('delete.photo');
 
+//Single and multiple photo gallery route
+Route::get('viewbigphoto/{id}', [PhotoGalleryController::class,'ViewBigphoto'])->name('view.bigphoto');
+Route::get('viewsmallphoto/{id}', [PhotoGalleryController::class,'ViewSmallphoto'])->name('view.smallphoto');
+Route::get('allphoto/', [PhotoGalleryController::class,'PhotoAll'])->name('photo.all');
+
+//Single and multiple video gallery route
+Route::get('allvideo/', [VideoController::class,'VideoAll'])->name('all.video');
+
+
+
+
 //Videogallery Link Route
 Route::get('/video/gallery', [VideoController::class,'VideoGallery'])->name('video.gallery');
 Route::get('/add/video', [VideoController::class,'AddVideo'])->name('add.video');

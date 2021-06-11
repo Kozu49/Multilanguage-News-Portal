@@ -880,22 +880,26 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 	
 
 				@php
+				$photos=DB::table('photos')->get();
 				$photobig=DB::table('photos')->where('type',1)->orderBy('id','desc')->first();				
 				$photosmalls=DB::table('photos')->where('type',0)->orderBy('id','desc')->limit(5)->get();				
 
 				@endphp
 	
 	<!-- gallery-section-start -->	
-	<section class="news-section">
+	<section class="news-section">					
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-8 col-sm-7">
 					<div class="gallery_cetagory-title"> 
-					@if(session()->get('lang')=='english')
+							<div><a href="{{route('photo.all')}}">
+							@if(session()->get('lang')=='english')
 							Photo Gallery
 							@else
 							तस्बिर पुस्तिका
 							@endif
+							</a>
+							</div>
 					 </div>
 
 					<div class="row">
@@ -903,7 +907,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 	                        <div class="photo_screen">
 	                            <div class="myPhotos" style="width:100%">
 								
-                                      <img src="{{asset('image/photogallery/'.$photobig->photo)}}"  alt="Avatar">
+                                      <a href="{{route('view.bigphoto',$photobig->id)}}"><img src="{{asset('image/photogallery/'.$photobig->photo)}}"  alt="Avatar"></a>
 	                            </div>
 	                        </div>
 	                    </div>
@@ -913,7 +917,7 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 							@foreach($photosmalls as $photosmall)
 	                            
 	                            <div class="photo_img photo_border active">
-	                                <img src="{{asset('image/photogallery/'.$photosmall->photo)}}" alt="image" onclick="currentDiv(1)">
+	                                <a href="{{route('view.smallphoto',$photosmall->id)}}"><img src="{{asset('image/photogallery/'.$photosmall->photo)}}" alt="image" onclick="currentDiv(1)"></a>
 	                                <div class="heading-03">
 									
 									{{$photosmall->title}}
@@ -976,11 +980,11 @@ $threecatpostsmalls=DB::table('posts')->where('category_id',$threecategory->id)-
 				</div>
 				<div class="col-md-4 col-sm-5">
 					<div class="gallery_cetagory-title"> 
-					@if(session()->get('lang')=='english')
+					<a href="{{route('all.video')}}">@if(session()->get('lang')=='english')
 							Video Gallery
 							@else
 							भिडियो ग्यालरी
-							@endif
+							@endif</a>
 					 </div>
 
 					<div class="row">

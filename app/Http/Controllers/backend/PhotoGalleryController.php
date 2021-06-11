@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Photo;
 use Intervention\Image\Facades\Image;
-
+use DB;
 
 class PhotoGalleryController extends Controller
 {
@@ -128,6 +128,21 @@ class PhotoGalleryController extends Controller
         return redirect()->route('photo.gallery')->with($notification);
     }
 
+    public function PhotoAll(){
+        $photo=Photo::all();
+        return view('main.allphoto',['photos'=>$photo]);
+    }
+
+    public function ViewBigphoto($id){
+        $photo=Photo::find($id);
+        return view('main.singlephoto',['photo'=>$photo]);
+    }
+
+    public function ViewSmallphoto($id){
+
+        $photo=Photo::find($id);
+        return view('main.singlephoto',['photo'=>$photo]);
+    }
     
 
 
